@@ -1,0 +1,169 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #4dabf7;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #339af0;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background: #adb5bd;
+    cursor: not-allowed;
+}
+
+/* Grid Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.grid-container {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#grid {
+    display: grid;
+    gap: 3px;
+}
+
+.cell {
+    width: 38px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.cell.found {
+    background: #69db7c !important;
+    color: white;
+}
+
+.words-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#wordList {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.word-item {
+    padding: 12px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.word-item.found {
+    background: #69db7c;
+    color: white;
+    text-decoration: line-through;
+    transform: translateX(10px);
+}
+
+#lineCanvas {
+    position: absolute;
+    pointer-events: none;
+}
+
+#status {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.2em;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Persistent highlight for found words */
+.cell.found {
+    background: #4CAF50 !important;
+    color: white;
+    animation: pop 0.3s ease;
+}
+
+/* Selection highlight */
+.cell.selected {
+    background: #2196F3 !important;
+    color: white;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.cell.found {
+    background: #4CAF50 !important;
+    color: white;
+    position: relative;
+}
+
+.cell.found::after {
+    content: "✓";
+    position: absolute;
+    right: 5px;
+    bottom: 2px;
+    font-size: 0.8em;
+}
+
+.word-item {
+    padding: 8px;
+    margin: 4px 0;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.word-item:hover {
+    background: #e9ecef;
+}
